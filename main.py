@@ -1,32 +1,25 @@
 import spellchecker
-
+import timeit
 sc = spellchecker.SpellChecker()
-
 while(True):
     sc.printMenu()
-
     txtIn = input()
-    # Add input control here!
-
+    if not txtIn.isdigit() or (int(txtIn) not in [1,2,3,4]):
+        raise ValueError("Valore inserito non valido!!!")
     if int(txtIn) == 1:
         print("Inserisci la tua frase in Italiano\n")
         txtIn = input()
         sc.handleSentence(txtIn,"italian")
-        continue
 
-    if int(txtIn) == 2:
-        print("Inserisci la tua frase in Inglese\n")
+    elif int(txtIn) == 2:
+        print("Enter your sentence in English\n")
         txtIn = input()
         sc.handleSentence(txtIn,"english")
-        continue
 
-    if int(txtIn) == 3:
-        print("Inserisci la tua frase in Spagnolo\n")
+    elif int(txtIn) == 3:
+        print("Introduce tu frase en Español\n")
         txtIn = input()
         sc.handleSentence(txtIn,"spanish")
-        continue
 
-    if int(txtIn) == 4:
+    elif int(txtIn) == 4:
         break
-
-
