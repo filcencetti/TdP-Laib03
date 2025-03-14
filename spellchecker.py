@@ -1,11 +1,9 @@
 import time
-
 import multiDictionary as md
 
 class SpellChecker:
     def __init__(self):
         self.m = md.MultiDictionary()
-        pass
 
     def handleSentence(self, txtIn, language):
         sentence_by_words = []

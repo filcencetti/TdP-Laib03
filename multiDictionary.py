@@ -12,12 +12,11 @@ class MultiDictionary:
 
     def printDic(self, language):
         if language == "Italian":
-            print(self.ita)
+            self.ita.printAll(language)
         elif language == "English":
-            print(self.eng)
+            self.eng.printAll(language)
         elif language == "Spanish":
-            print(self.spa)
-        pass
+            self.spa.printAll(language)
 
     def searchWord(self, words_1, language):
         self.wrongs = []
@@ -88,9 +87,12 @@ class MultiDictionary:
         return self.wrongs
 
     def print_wrong_words(self,wrong_words,time):
-        print("Using contains:")
-        for word in wrong_words:
-            print(word)
-        print(f"Numero di parole sbagliate: {len(wrong_words)}")
-        print(f"Tempo di esecuzione: {time}")
-        print("------------------------------------------------")
+        if len(wrong_words)==0:
+            print("Zero errori :-)")
+        else:
+            print("Using contains:")
+            for word in wrong_words:
+                print(word)
+            print(f"Numero di parole sbagliate: {len(wrong_words)}")
+            print(f"Tempo di esecuzione: {time}")
+            print("------------------------------------------------")

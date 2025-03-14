@@ -7,7 +7,8 @@ class Dictionary:
         for line in file.readlines():
             self.words.append(line.strip())
 
-    def printAll(self):
+    def printAll(self,language):
+        print(f"Il dizionario {language} contiene:")
         for word in self.words:
             print(word)
 

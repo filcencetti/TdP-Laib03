@@ -22,4 +22,5 @@ while(True):
         sc.handleSentence(txtIn,"spanish")
 
     elif int(txtIn) == 4:
+        print("Arrivederci!")
         break
