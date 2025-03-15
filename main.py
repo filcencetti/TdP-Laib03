@@ -1,7 +1,6 @@
 import spellchecker
-import timeit
 sc = spellchecker.SpellChecker()
-while(True):
+while True:
     sc.printMenu()
     txtIn = input()
     if not txtIn.isdigit() or (int(txtIn) not in [1,2,3,4]):

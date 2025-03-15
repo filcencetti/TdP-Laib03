@@ -9,6 +9,9 @@ class MultiDictionary:
         self.ita.loadDictionary("resources/Italian.txt")
         self.eng.loadDictionary("resources/English.txt")
         self.spa.loadDictionary("resources/Spanish.txt")
+        self.wrongs_1 = []
+        self.wrongs_2 = []
+        self.wrongs_3 = []
 
     def printDic(self, language):
         if language == "Italian":
@@ -19,7 +22,6 @@ class MultiDictionary:
             self.spa.printAll(language)
 
     def searchWord(self, words_1, language):
-        self.wrongs = []
         if language == "italian":
             self.word_list = self.ita.words
         elif language == "english":
@@ -31,11 +33,10 @@ class MultiDictionary:
             if self.word_list.__contains__(word):
                 self.word_wrong.corretta = True
             if not self.word_list.__contains__(word):
-                self.wrongs.append(word)
-        return self.wrongs
+                self.wrongs_1.append(word)
+        return self.wrongs_1
 
     def searchWordLinear(self,words_1, language):
-        self.wrongs = []
         if language == "italian":
             self.word_list = self.ita.words
         elif language == "english":
@@ -47,12 +48,11 @@ class MultiDictionary:
             for word_dict in self.word_list:
                 if word == word_dict:
                     self.word_wrong.corretta = True
-            if self.word_wrong.corretta == False:
-                self.wrongs.append(word)
-        return self.wrongs
+            if not self.word_wrong.corretta:
+                self.wrongs_2.append(word)
+        return self.wrongs_2
 
     def searchWordDichotomic(self,words_1, language):
-        self.wrongs = []
         if language == "italian":
             self.word_list = self.ita.words
         elif language == "english":
@@ -82,9 +82,9 @@ class MultiDictionary:
                 for word_dict in first_half:
                     if word == word_dict:
                         self.word_wrong.corretta = True
-            if self.word_wrong.corretta == False:
-                self.wrongs.append(word)
-        return self.wrongs
+            if not self.word_wrong.corretta:
+                self.wrongs_3.append(word)
+        return self.wrongs_3
 
     def print_wrong_words(self,wrong_words,time):
         if len(wrong_words)==0:
